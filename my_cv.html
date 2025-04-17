@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CV cá nhân của Nguyễn Chín Thanh - Frontend Developer đam mê UI/UX và code sáng tạo." />
+  <title>CV Nguyễn Chín Thanh</title>
+  <link rel="icon" type="image/png" href="https://via.placeholder.com/32" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://anhdepfree.com/wp-content/uploads/2022/05/anh-nen-gaming-4k_959021.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+    section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+      animation: fadeIn 0.6s ease forwards;
+      opacity: 0;
+    }
+    section:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    ul {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    li {
+      margin-bottom: 0.3rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .light-mode {
+      background: #fff !important;
+      color: #000 !important;
+    }
+    .light-mode section {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    .expanded {
+      position: fixed;
+      top: 50px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(0, 0, 0, 0.95);
+      padding: 2rem;
+      z-index: 999;
+      overflow-y: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      animation: zoomIn 0.4s ease forwards;
+      cursor: default;
+    }
+    .expanded-content {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .hidden {
+      opacity: 0.3; /* Làm mờ các section khác */
+      filter: blur(5px); /* Thêm hiệu ứng blur */
+      pointer-events: none; /* Ngăn tương tác với section mờ */
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+    .back-btn {
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #ddd;
+    }
+    button:focus, section:focus {
+      outline: 2px solid #ffd;
+      outline-offset: 2px;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+      header img {
+        width: 100px;
+        height: 100px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      .expanded {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        padding: 1rem;
+      }
+      .expanded-content {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggleMode" aria-label="Chuyển đổi chế độ sáng/tối" style="position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: rgba(255,255,255,0.2); border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer;">🌗</button>
+  
+  <header>
+    <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-1/485333170_1189481509854551_5934605055272191849_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeGqI9PP0oGAywOf2zVFGEOmOIL8QLLCDaQ4gvxAssINpFny6WPZU0gtZK7E_fyVONJ6K5P_yUh7PLBbceY039rs&_nc_ohc=7wX67RHAHQIQ7kNvwFg8V0F&_nc_oc=Adn5nTPLs3gt52l4qz5KX7SEqrXB8Zq8H_t7ZFkVBP5dV2EIl_xwJeQs7rcVYWjQWHw&_nc_zt=24&_nc_ht=scontent.fhan14-1.fna&_nc_gid=7rYxh5y7Lf9pg4nQ-DkqgA&oh=00_AfEnKUT_aXTS4_nRUuW0vRhJ-gSPxGwlExCs9Gp7yr1pZQ&oe=680636F3" alt="Ảnh đại diện của Nguyễn Chín Thanh">
+    <h1>Nguyễn Chín Thanh</h1>
+    <h2 id="typing-text" aria-live="polite"></h2>
+  </header>
+
+  <section tabindex="0" aria-label="Giới thiệu bản thân"><h3>Giới thiệu</h3><p>Mình là một lập trình viên thích mày mò, yêu thích cái đẹp và code như hơi thở. Mục tiêu là tạo ra các sản phẩm mượt như mông em bé.</p></section>
+
+  <section tabindex="0" aria-label="Kỹ năng lập trình">
+    <h3>Kỹ năng</h3>
+    <ul>
+      <li><i class="fas fa-code"></i> C++, Python</li>
+      <li><i class="fab fa-react"></i> React, Tailwind CSS</li>
+      <li><i class="fas fa-pencil-ruler"></i> UI/UX Design cơ bản</li>
+      <li><i class="fas fa-bolt"></i> Ăn mì tôm 7 ngày/tuần mà vẫn sống khoẻ</li>
+    </ul>
+  </section>
+
+  <div class="card-section">
+    <section tabindex="0" aria-label="Kinh nghiệm làm việc">
+      <h3>Kinh nghiệm</h3>
+      <ul>
+        <li><strong>Chưa thực tập</strong> – Làm việc ảo tung chảo (2024)</li>
+        <li><strong>Freelancer</strong> – Code từ sáng đến khuya, client vẫn chưa trả tiền (2023 - nay)</li>
+      </ul>
+    </section>
+    <section tabindex="0" aria-label="Học vấn">
+      <h3>Học vấn</h3>
+      <ul>
+        <li>Đại học Kinh tế Kỹ thuật Công nghiệp – Ngành Công Nghệ Thông Tin</li>
+      </ul>
+    </section>
+  </div>
+
+  <section tabindex="0" aria-label="Dự án cá nhân">
+    <h3>Dự án</h3>
+    <ul>
+      <li><strong>Personal CV Website</strong> – Website giới thiệu bản thân, được viết bằng HTML, CSS, JavaScript. Có dark mode, hiệu ứng typing và animation siêu mượt (2025)</li>
+    </ul>
+  </section>
+
+  <section tabindex="0" aria-label="Thông tin liên hệ">
+    <h3>Liên hệ</h3>
+    <ul>
+      <li><i class="fas fa-envelope"></i> Email: <a href="mailto:thanh7749222@gmail.com" style="color: #ffd">thanh7749222@gmail.com</a></li>
+    </ul>
+  </section>
+
+  <script>
+    // Typing effect
+    const text = "Frontend Developer | Đam mê UI/UX | Thích code tới sáng";
+    let index = 0;
+    const speed = 50;
+    function typeWriter() {
+      if (index < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, speed);
+      } else {
+        setTimeout(() => {
+          document.getElementById("typing-text").innerHTML = "";
+          index = 0;
+          typeWriter();
+        }, 3000);
+      }
+    }
+    typeWriter();
+
+    // Toggle light/dark mode
+    const toggleBtn = document.getElementById("toggleMode");
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      toggleBtn.textContent = document.body.classList.contains("light-mode") ? "🌙" : "🌗";
+    });
+
+    // Expandable sections
+    const sections = document.querySelectorAll("section");
+    const header = document.querySelector("header");
+    sections.forEach((sec, i) => {
+      sec.style.animationDelay = `${(i + 1) * 0.2}s`;
+
+      sec.addEventListener("click", function (e) {
+        if (e.target.tagName === "A" || this.classList.contains("expanded")) return;
+
+        header.classList.add("hidden"); // Làm mờ header
+        sections.forEach(s => {
+          if (s !== this) s.classList.add("hidden"); // Làm mờ các section khác
+        });
+
+        this.classList.add("expanded");
+        const originalHTML = this.innerHTML;
+
+        // Thay thế hoàn toàn nội dung của section bằng nội dung mở rộng
+        this.innerHTML = `
+          <div class="expanded-content">
+            <p>Xin chào! Mình là Thanh - chiến thần deadline, vua debug bug ảo và đệ tử ruột của thần Codezilla. Mình có thể biến cà phê thành code, biến deadline thành động lực sống và biến client khó tính thành người yêu (đùa đấy).<br><br>
+            Ngoài việc đập bàn phím 10 tiếng/ngày, mình còn thích UI mượt, UX dịu và dark mode ngầu lòi. Mục tiêu trong 5 năm tới là tạo ra sản phẩm khiến người ta phải thốt lên: "Thằng này code mà như làm thơ".</p>
+            <button class="back-btn" aria-label="Quay lại nội dung ban đầu">Quay lại</button>
+          </div>
+        `;
+
+        this.querySelector(".back-btn").addEventListener("click", (e) => {
+          e.stopPropagation();
+          this.innerHTML = originalHTML;
+          this.classList.remove("expanded");
+          sections.forEach(s => s.classList.remove("hidden"));
+          header.classList.remove("hidden");
+        });
+      });
+
+      // Hỗ trợ bàn phím
+      sec.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
